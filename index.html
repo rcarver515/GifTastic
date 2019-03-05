@@ -1,30 +1,90 @@
 <!DOCTYPE html>
-<html lang = "en-us">
+<html lang="en-us">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
+
 <body>
     <!-- Image and text -->
-<nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-      <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-      Coding Bootcamp- GifTastic Assignment
-    </a>
-  </nav>
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">GifTastic Instrucitons:</h1>
-      <p class="lead">Type .</p>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="https://www.techsmith.com/blog/wp-content/uploads/2018/11/How-to-make-a-GIF-from-video-image-855x570.jpeg" width="50" height="40"
+                class="d-inline-block align-top" alt="">
+            Coding Bootcamp- GifTastic Assignment
+        </a>
+    </nav>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg">
+                        <h1 class="display-4">GifTastic Instrucitons:</h1>
+                        <p class="lead">1. Click on any of the buttons and watch what happens.<br>
+                            2. Click on the images to animate them.<br>
+                            3. Create your own "Hero" button by entering their name in the search window below.
+                        </p>
+                    </div>
+                    <div class="col-sm">
+                        <img class="img-responsive"
+                            src="https://cdn-images-1.medium.com/max/1600/1*SS_4JO23jyMijpV-GUlN7A.gif"
+                            alt="Justice League" width="460" height="345">
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
     </div>
-  </div>
+    <div class="card card-default">
+        <div class="card-header">
+                <button class="btn btn-primary" type="submit" data-person="Batman">Batman</button>
+                <button class="btn btn-primary" type="submit" data-person="Superman">Superman</button>
+                <button class="btn btn-primary" type="submit" data-person="The Flash">The Flash</button>
+                <button class="btn btn-primary" type="submit" data-person="Aquqman">Aquaman</button>
+                <button class="btn btn-primary" type="submit" data-person="Cyborg">Cyborg</button>
+                <button class="btn btn-primary" type="submit" data-person="Wonder Woman">Wonder Woman</button>
+            
+
+        <div class="card-body">
+           <div id ="gifs-appear-here"></div>
+        </div>
+    </div>
+
+    <div class="card card-default">
+        <div class="card-body">
+
+            <!--"Users hero search"-->
+            <strong>Search: </strong> <span id="Users search"></span>
+            <input id="user-search" />
+            <div class="text-center">
+                <button id="guess-btn" class="btn btn-primary btn-lg">Create your own Hero button</button>
+            </div>
+
+        </div>
+    </div>
+     <!--     footer  -->
+     <footer class="container-fluid text-center bg-light">
+            <p>Copyright &copy</p>
+        </footer>
     <script src="assets/javascript/app.js"></script>
 </body>
+
 </html>
