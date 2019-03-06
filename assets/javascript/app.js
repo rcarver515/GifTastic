@@ -3,50 +3,61 @@ $(document).ready(function () {
     // Create an array and save it to a variable called topics
     var heroTopics = ["Batman", "Superman", "The Flash", "Aquaman", "Cyborg", "Wonder Woman"];
 
-    $("btn btn-primary").on("click", function () {
+    $(document).on("click", ".heroButtons", function () {
+        console.log('here');
 
-        var hero = $(this).attr("data-name");
+        var hero = $(this).attr("data-person");
 
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=batman";
+        heroGen(hero);
+    })
 
-        hero + "&api_key=wHCSuOfsZ0RmYMldeKM8aVMiOd5vUtFU=5"
 
-        // Ajax GET request
-        $.ajax({
-            url: queryURL,
-            method: "GET"
+    $("#guess-btn").on("click", function(){
+        
+        //<button class="btn btn-primary heroButtons" type="submit" data-person="Cyborg">Cyborg</button>
+        var newHero = $("#user-search").val();
+        var newBtn = $("<button class='btn btn-primary heroButtons'></button>");
+        newBtn.attr('data-person', newHero);
+        newBtn.text(newHero);
+        $("#heroBtnContainer").append(newBtn);
+        });
+});
+
+function heroGen(hero) {
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + hero + "&api_key=wHCSuOfsZ0RmYMldeKM8aVMiOd5vUtFU" + "&limit=5";
+
+    // Ajax GET request
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    })
+
+        .then(function (response) {
+            console.log(queryURL);
+
+            // Create a div(button) to hold hero name
+
+            var heroTopics = response.data;
+
+            for (var i = 0; i < heroTopics.length; i++) {
+
+                var heroDiv = $("<div class=btn btn-primary>");
+
+
+                var p = $("<p>").text("Name: " + hero);
+
+                var heroImage = $("<img>");
+
+                heroImage.attr("src", heroTopics[i].images.fixed_height.url);
+
+                heroDiv.append(p);
+                heroDiv.append(heroImage)
+
+                heroImage.attr("alt", "hero image");
+
+                $("#gifs-appear-here").prepend(heroDiv);
+
+            }
+
         })
-
-            .then(function (response) {
-
-                // Create a div(button) to hold hero name
-
-                var heroName = response.data;
-
-                for (var i = 0; i < heroTopics.length; i++) {
-                    console.log(heroTopics[1])
-
-                    var heroDiv = $("<div class='hero'>");
-
-
-                    var p = $("<p>").text("Name: " + heroName);
-
-                    var heroImage = $("<img>");
-
-                    heroImage.attr("src", results[i].images.fixed - height.url)
-
-                    heroDiv.append(p);
-                    heroDiv.append(heroImage)
-
-                    var imgURL = response.data.image_original_url;
-
-
-                    heroImage.attr("src", imgURL);
-                    heroImage.attr("alt", "hero image");
-
-                    $("#gifs-appear-here").prepend(heroDiv);
-
-                }
-            })
-            })
-            })
+};
